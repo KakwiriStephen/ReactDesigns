@@ -1,11 +1,12 @@
 
 import React ,{useState}from 'react'
 
-export default function TodoForm() {
+export default function TodoForm(props) {
 
     const [input,setInput]=useState("");
     const handleSubmit = (e)=>{
         e.preventDefault();
+        props.addTodo(input)
         setInput('')
     }
 

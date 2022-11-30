@@ -5,7 +5,9 @@ function TodoItem(props) {
     return (
         <div className='todo-row'>
             {props.todo.text}
-            <AiOutlineDelete/>
+            <div className='iconsContainer'>
+            <AiOutlineDelete className='icon'/>
+            </div>
             
         </div>
     );

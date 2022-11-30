@@ -22,13 +22,25 @@ function App() {
     let updateTodos=[...todos].filter((todo)=>todo.id !== id)
     setTodos(updateTodos)
   }
+
+  const completedTodo=(id)=>{
+    let updateTodos = todos.map((todo)=>{
+      if(todo.id===id){
+        todo.completed=!todo.completed
+      }
+      return todo
+    })
+    setTodos(updateTodos)
+
+  }
+
   return (
     <div className='todo-app'>
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo}/>
       {todos.map((todo)=>{
         return(
-          <TodoItem removeTodo={removeTodo }todo={todo} key={todo.id}/>
+          <TodoItem removeTodo={removeTodo } completedTodo={completedTodo}todo={todo} key={todo.id}/>
         )
       })}
      

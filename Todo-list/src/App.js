@@ -37,7 +37,9 @@ function App() {
   return (
     <div className='todo-app'>
       <h1>Todo List</h1>
+
       <TodoForm addTodo={addTodo}/>
+      <hr className='seperator'/>
       {todos.map((todo)=>{
         return(
           <TodoItem removeTodo={removeTodo } completedTodo={completedTodo}todo={todo} key={todo.id}/>

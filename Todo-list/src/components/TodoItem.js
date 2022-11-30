@@ -2,7 +2,7 @@ import React from 'react';
 
 function TodoItem(props) {
     return (
-        <div>
+        <div className='todo-row'>
             {props.todo.text}
             
         </div>

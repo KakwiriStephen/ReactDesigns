@@ -45,7 +45,6 @@ function App() {
           <TodoItem removeTodo={removeTodo } completedTodo={completedTodo}todo={todo} key={todo.id}/>
         )
       })}
-     
     </div>
   );
 }

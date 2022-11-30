@@ -2,11 +2,12 @@ import React from 'react';
 import {AiOutlineDelete} from "react-icons/ai"
 
 function TodoItem(props) {
+    const {todo,removeTodo}=props
     return (
         <div className='todo-row'>
-            {props.todo.text}
+            {todo.text}
             <div className='iconsContainer'>
-            <AiOutlineDelete className='icon'/>
+            <AiOutlineDelete className='icon' onClick={()=>removeTodo(todo.id)}/>
             </div>
             
         </div>

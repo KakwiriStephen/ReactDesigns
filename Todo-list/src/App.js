@@ -17,13 +17,18 @@ function App() {
     setTodos(newTodos)
 
   }
+
+  const removeTodo=(id)=>{
+    let updateTodos=[...todos].filter((todo)=>todo.id !== id)
+    setTodos(updateTodos)
+  }
   return (
     <div className='todo-app'>
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo}/>
       {todos.map((todo)=>{
         return(
-          <TodoItem todo={todo} key={todo.id}/>
+          <TodoItem removeTodo={removeTodo }todo={todo} key={todo.id}/>
         )
       })}
      

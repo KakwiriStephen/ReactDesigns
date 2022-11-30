@@ -14,7 +14,8 @@ export default function TodoForm(props) {
   return (
     <div>
         <form onSubmit={handleSubmit} className='todo-form'>
-            <input onChange={(e)=>setInput(e.target.value)} className='todo-input' placeholder='Add todo' />
+            <input
+            value={input} onChange={(e)=>setInput(e.target.value)} className='todo-input' placeholder='Add todo' />
             <button type='submit' className='todo-button'>Add Todo</button>
         </form>
 

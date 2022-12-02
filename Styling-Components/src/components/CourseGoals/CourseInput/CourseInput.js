@@ -1,36 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import Button from "../../UI/Button/Button";
+import "./CourseInput.css";
 
-const CourseInput = props => {
-  const [enteredValue, setEnteredValue] = useState('');
+const FormControl = styled.div`
+  margin: 0.5rem 0;
 
-  const [isValid,setIsvalid]=useState(true)
+  & label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 
-  const goalInputChangeHandler = event => {
-    if(event.target.value.trim().length > 0){
+  &input {
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    font: inherit;
+    line-height: 1.5rem;
+    padding: 0 0.25rem;
+  }
+
+  &input:focus {
+    outline: none;
+    background: #fad0ec;
+    border-color: #8b005d;
+  }
+
+  &.invalid input {
+    background-color: red;
+    background: rgb(242, 200, 200);
+  }
+
+  &.invalid label {
+    color: red;
+  }
+`;
+
+const CourseInput = (props) => {
+  const [enteredValue, setEnteredValue] = useState("");
+
+  const [isValid, setIsvalid] = useState(true);
+
+  const goalInputChangeHandler = (event) => {
+    if (event.target.value.trim().length > 0) {
       setIsvalid(true);
     }
     setEnteredValue(event.target.value);
   };
 
-  const formSubmitHandler = event => {
+  const formSubmitHandler = (event) => {
     event.preventDefault();
-    if (enteredValue.trim().length === 0){
-    setIsvalid(false)
-    return;
+    if (enteredValue.trim().length === 0) {
+      setIsvalid(false);
+      return;
     }
     props.onAddGoal(enteredValue);
-  }; 
+  };
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
+      <FormControl>
+        {" "}
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
-      </div>
-      <Button type="submit" >Add Goal</Button>
+      </FormControl>
+      <Button type="submit">Add Goal</Button>
     </form>
   );
 };

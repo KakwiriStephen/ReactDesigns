@@ -40,3 +40,8 @@ const Button = (props) => {
 };
 
 export default Button;
+
+//Style TYpes
+//styled components
+// css modules
+//Raw Css

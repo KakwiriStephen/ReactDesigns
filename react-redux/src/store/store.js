@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
 const reducerFn = (state = { counter: 0 }, action) => {
-  ///Snchronus Function
+  //Snchronus Function
   //should not mutate the original state
 
   if (action.type === "INC") {

@@ -4,7 +4,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     itemsList: [],
-    totalQuantit: 0,
+    totalQuantity: 0,
     showCart: false,
   },
   reducers: {
@@ -23,7 +23,9 @@ const cartSlice = createSlice({
         state.itemsList.push({
           id: newItem.id,
           price: newItem.price,
-          name: newItem,
+          quantity: 1,
+          totalPrice: newItem.price,
+          name: newItem.name,
         });
       }
     },
@@ -33,3 +35,7 @@ const cartSlice = createSlice({
     },
   },
 });
+
+export const cartActions = cartSlice.actions;
+
+export default cartSlice;

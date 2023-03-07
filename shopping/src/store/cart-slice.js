@@ -7,5 +7,11 @@ const cartSlice = createSlice({
     totalQuantit: 0,
     showCart: false,
   },
-  reducers: {},
+  reducers: {
+    addToCart() {},
+    removeFromCart() {},
+    setShowCart(state) {
+      state.showCart = true;
+    },
+  },
 });
